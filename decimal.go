@@ -1086,9 +1086,9 @@ func (d *Decimal) UnmarshalJSON(decimalBytes []byte) error {
 func (d Decimal) MarshalJSON() ([]byte, error) {
 	var str string
 	if MarshalJSONWithoutQuotes {
-		str = d.String()
+		str = d.StringFixed(4)
 	} else {
-		str = "\"" + d.String() + "\""
+		str = "\"" + d.StringFixed(4) + "\""
 	}
 	return []byte(str), nil
 }
