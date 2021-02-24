@@ -1084,13 +1084,7 @@ func (d *Decimal) UnmarshalJSON(decimalBytes []byte) error {
 
 // MarshalJSON implements the json.Marshaler interface.
 func (d Decimal) MarshalJSON() ([]byte, error) {
-	var str string
-	if MarshalJSONWithoutQuotes {
-		str = d.StringFixed(4)
-	} else {
-		str = "\"" + d.StringFixed(4) + "\""
-	}
-	return []byte(str), nil
+	return []byte(d.StringFixed(4)), nil
 }
 
 // UnmarshalBinary implements the encoding.BinaryUnmarshaler interface. As a string representation
